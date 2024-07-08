@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="styles/style.css"/>
+  <title>Pokeman: watch and earn</title>
+  <script src="https://kit.fontawesome.com/8d56b97bad.js" crossorigin="anonymous"></script>
+</head>
+<style>
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  
+}
+body{
+  background: #0A1936;
+  
+}
+
+   .profile {
+       width: 90%;
+       margin-top: 10px;
+       height: 60px;
+       background: #3D474C;
+       margin-left: 5%;
+       border-radius: 5px;
+       border-top: 3px solid #ffd215;
+       box-shadow: 0px 80px 110px #d1ac11;
+  
+   }
+   .profile-poke{
+       width: 65px;
+       height: 55px;
+       
+       border-radius: 50%;
+       margin: 2.5px;
+   }
+   .profile-pic p{
+       font-size: 18px;
+       color: white;
+      
+       margin-top: -50px;
+       margin-left: 80px
+   }
+   l{
+       color: red;
+   }
+.cash{
+    width: 68px;
+    height: 24px;
+    background: red;
+    float: right;
+    border-radius: 7px;
+    margin-top: -25px;
+    margin-right: 30px;
+    background: transparent;
+    border-style: outset;
+    border-width: 2px;
+    border-color: whitesmoke;
+    
+}
+.cash p{
+    font-size: 15px;
+    margin-top: 1.5px;
+    margin-left: 26px;
+    color: white;
+}
+.cash img{
+    width: 30px;
+    margin-top: -5px;
+    margin-left: -8px;
+    position: absolute;
+}
+.coins-counter img{
+    width: 90px;
+    display: flex;
+}
+.coins-counter ul li{
+    display: inline-table;
+    color: whitesmoke;
+}
+.coins-counter{
+    display: flex;
+   justify-content: center;
+    margin-top: 20px;
+}
+.coins-counter ul li p{
+    position: relative;
+    top: -20px;
+}
+.ball img{
+    width: 280px;
+    height: 310px;
+    margin-left: 22px;
+}
+.coin-p{
+    width: 330px;
+    position: absolute; 
+    top: 150px;
+    left: -8px;
+}
+.tap-limit{
+    font-size: 18px;
+    color: whitesmoke;
+    margin-top: 280px;
+}
+.tap-limit img{
+    width: 60px;
+    position: relative;
+    top: 17px;
+}
+.footer ul li{
+    color: white;
+    display: inline-table;
+    margin: 24px;
+    
+    font-size: 20px;
+    align-items: center;
+}
+.footer{
+    width: 100%;
+    height: 50px;
+    background: #8098ff;
+    display: flex;
+    align-items: center;
+    margin-top: 26px;
+    margin-bottom: 0px;
+    border-radius: 9px;
+    position: absolute;
+    top: 540px;
+    border-top: 2px solid red;
+    box-shadow: 180px -120px 210px #d1ac11;
+}
+</style>
+<body>
+  <h1>
+      <div class="profile">
+        <div class="profile-pic">
+            <img class="profile-poke" src="https://od.lk/s/MjNfMzIzNjI5MDRf/IMG-20240630-WA0042_1.jpg">
+            <p><l>Red</l> !</p>
+        </div>
+        <div class="cash">
+            <img src="https://od.lk/s/MjNfMzIzODEyNjhf/Dofoto_20240702_054621875.png">
+            <p id="result">0</p>
+        </div>
+      </div>
+      <div class="game">
+          <div class="coins-counter">
+              <ul>
+                  <li>
+              <img src="https://od.lk/s/MjNfMzIzODExOTVf/Dofoto_20240702_0"></li>
+             <li> <p id="coin-counter">0</p></li>
+              </ul>
+          </div>
+      </div>
+      
+      <img class="coin-p" src="https://od.lk/s/MjNfMzIzOTE1NTNf/Dofoto_20240702_111830162.png" id="coin-tap">
+      <p class="tap-limit"><img src="https://od.lk/s/MjNfMzI0Mzc2OTZf/img_1720011503527.png"> <span class="limit" id="tap-limit">5000</span>/5000</p>
+      <div class="footer">
+          <ul>
+              <li><i class="fa-solid fa-house"></i></li>
+              <li><i class="fa-solid fa-coins"></i></li>
+              <li><i class="fa-solid fa-user-group"></i></li>
+              <li><i class="fa-solid fa-fire-flame-curved"></i></li>
+          </ul>
+      </div>
+</body>
+<script>
+    let coinCount = 0;
+let tapLimit = 5000;
+
+document.getElementById("coin-tap").addEventListener("click", function() {
+  if (tapLimit > 0) {
+    coinCount++;
+    document.getElementById("coin-counter").innerHTML = coinCount;
+    tapLimit--;
+    document.getElementById("tap-limit").innerHTML = tapLimit;
+  }
+});
+
+setInterval(function() {
+  if (tapLimit < 5000) {
+    tapLimit++;
+    document.getElementById("tap-limit").innerHTML = tapLimit;
+  }
+}, 2000);
+
+
+document.getElementById("coin-tap").addEventListener("click", function() {
+  navigator.vibrate(50); // vibrate for 2 seconds
+});
+
+
+
+document.getElementById("coin-tap").addEventListener("click", function() {
+  this.style.transform = "scale(0.9)"; // shrink to 90% of original size
+  setTimeout(function() {
+    this.style.transform = "scale(1)"; // return to original size
+  }.bind(this), 50); // wait 50ms (0.05 seconds)
+});    
+    
+    
+</script>
+<script src="script.js"></script>
+</html>
+
