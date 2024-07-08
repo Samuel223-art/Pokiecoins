@@ -161,7 +161,7 @@ body{
       <div class="footer">
           <ul>
               <li><i class="fa-solid fa-house"></i></li>
-              <li><i class="fa-solid fa-coins"></i></li>
+              <li><i class="fa-solid fa-coins" id="back"></i></li>
               <li><i class="fa-solid fa-user-group"></i></li>
               <li><i class="fa-solid fa-fire-flame-curved"></i></li>
           </ul>
@@ -201,7 +201,11 @@ document.getElementById("coin-tap").addEventListener("click", function() {
   }.bind(this), 50); // wait 50ms (0.05 seconds)
 });    
     
-    
+    const back = document.getElementById('back');
+
+button.addEventListener('click', () => {
+  window.open('Earn.html', '_blank');
+});
 </script>
 <script src="script.js"></script>
 </html>
